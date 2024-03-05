@@ -10,10 +10,14 @@ enum PlantType{
 
 signal plant_removed()
 
-@onready var sprite = $AnimatedSprite2D
-
-@export var type :PlantType
-var growth_stage = 0
+@export var type :PlantType:
+	set(val):
+		type = val
+		update_sprite()
+var growth_stage = 0:
+	set(val):
+		growth_stage = val
+		update_sprite()
 
 @export var growth_time := 10 ## Time to change into next stage
 @export var growth_time_variance := Vector2(0.8, 1.2)
@@ -36,9 +40,16 @@ func start_growth_timer():
 	$GrowthTimer.start(growth_time * randf_range(growth_time_variance.x, growth_time_variance.y))
 
 func update_sprite():
-	## Weed having only 1 stage and being the first plant complicates this equation
-	## But this will work dynamically if I decide to add more plants (which I will surely do)
-	sprite.frame = growth_stage + (type - 1) * 3 + 1
+	match type:
+		PlantType.WEED:
+			$Sprite.animation = "weed"
+		PlantType.PARSNIP:
+			$Sprite.animation = "parsnip"
+		PlantType.MELON:
+			$Sprite.animation = "melon"
+		PlantType.TOMATO:
+			$Sprite.animation = "tomato"
+	$Sprite.frame = growth_stage
 
 func collect():
 	plant_removed.emit()
@@ -48,16 +59,14 @@ func collect():
 func _on_growth_timer_timeout():
 	if type == PlantType.WEED:
 		return
-	growth_stage = 1
+	self.growth_stage = 1
 	mature = true
-	update_sprite()
 
 func _on_corruption_timer_timeout():
 	if mature && !corrupted:
 		if randf() < corruption_chance:
 			corrupted = true
-			growth_stage = 2
-			update_sprite()
+			self.growth_stage = 2
 			$CorruptionTimer.stop()
 		else:
 			corruption_chance += corruption_chance_ramp

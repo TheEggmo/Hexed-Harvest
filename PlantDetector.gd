@@ -1,5 +1,7 @@
 extends Area2D
 
+signal plant_collected(plant :Plant)
+
 var plants = []
 
 @onready var shape := $CollisionShape2D
@@ -12,8 +14,11 @@ func _ready():
 func _physics_process(delta):
 	var nearest_plant = find_nearest_plant()
 	highlight_plant(nearest_plant)
+	
+	if Input.is_action_just_pressed("interact") && nearest_plant:
+		plant_collected.emit(nearest_plant.collect())
 
-func find_nearest_plant():
+func find_nearest_plant() -> Plant:
 	var nearest_plant
 	for plant in plants:
 		if !nearest_plant:
@@ -30,7 +35,6 @@ func highlight_plant(plant :Plant):
 	
 	cursor.visible = true
 	cursor.global_position = plant.global_position
-	
 
 func _on_area_entered(area):
 	plants.append(area)

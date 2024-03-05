@@ -7,9 +7,6 @@ var hold = false
 func _physics_process(delta):
 	move()
 	update_animation()
-	#temp
-	if Input.is_action_just_pressed("interact"):
-		hold = !hold
 
 func move():
 	var move_direction = Input.get_vector("left", "right", "up", "down")

@@ -3,24 +3,13 @@
 [ext_resource type="Script" path="res://level.gd" id="1_kwiaa"]
 [ext_resource type="Texture2D" uid="uid://dmdcadavf8q7l" path="res://plants.png" id="1_nn6mc"]
 [ext_resource type="PackedScene" uid="uid://bsnc521d2nh8w" path="res://player.tscn" id="2_b2k15"]
+[ext_resource type="Script" path="res://PlantPlots.gd" id="3_0oadd"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="4_poxyh"]
-[ext_resource type="PackedScene" uid="uid://byd6pg53kkhah" path="res://plant.tscn" id="5_knk13"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gllw2"]
 texture = ExtResource("1_nn6mc")
 texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
 0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_yfawj"]
 tile_size = Vector2i(32, 32)
@@ -29,14 +18,15 @@ sources/0 = SubResource("TileSetAtlasSource_gllw2")
 [node name="Level" type="Node2D"]
 script = ExtResource("1_kwiaa")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="PlantPlots" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yfawj")
 format = 2
-layer_0/tile_data = PackedInt32Array(1703936, 0, 1, 1703937, 0, 1, 1703938, 0, 1, 1703939, 0, 1, 1703940, 0, 1, 1703941, 0, 1, 1703942, 0, 1, 1703943, 0, 1, 1703944, 0, 1, 1703945, 0, 1, 1703946, 0, 1, 1703947, 0, 1, 1703948, 0, 1, 1703949, 0, 1, 1703950, 0, 1, 1703951, 0, 1, 1703952, 0, 1, 1703953, 0, 1, 1703954, 0, 1, 1703955, 0, 1, 1703956, 0, 1, 1703957, 0, 1, 1703958, 0, 1, 1703959, 0, 1, 1703960, 0, 1, 1703961, 0, 1, 1703962, 0, 1, 1703963, 0, 1, 1703964, 0, 1, 1703965, 0, 1, 1703966, 0, 1, 1703967, 0, 1, 1703968, 0, 1, 1703969, 0, 1, 1703970, 0, 1, 1703971, 0, 1, 1703972, 0, 1, 1703973, 0, 1, 1703974, 0, 1, 1703975, 0, 1, 1703976, 0, 1, 1703977, 0, 1, 1703978, 0, 1, 1703979, 0, 1, 1703980, 0, 1, 1703981, 0, 1, 1703982, 0, 1, 1703983, 0, 1, 1703984, 0, 1, 1638448, 0, 1, 1572912, 0, 1, 1507376, 0, 1, 1441840, 0, 1, 1376304, 0, 1, 1310768, 0, 1, 1245232, 0, 1, 1179696, 0, 1, 1114160, 0, 1, 1048624, 0, 1, 983088, 0, 1, 917552, 0, 1, 852016, 0, 1, 786480, 0, 1, 720944, 0, 1, 655408, 0, 1, 589872, 0, 1, 524336, 0, 1, 458800, 0, 1, 393264, 0, 1, 327728, 0, 1, 262192, 0, 1, 196656, 0, 1, 131120, 0, 1, 65584, 0, 1, 48, 0, 1)
+layer_0/tile_data = PackedInt32Array(327686, 0, 1, 327685, 0, 1, 262149, 0, 1, 262150, 0, 1, 458756, 0, 1, 458757, 0, 1, 458758, 0, 1, 458759, 0, 1, 458760, 0, 1, 524296, 0, 1, 524297, 0, 1, 524298, 0, 1, 524299, 0, 1, 524300, 0, 1, 458764, 0, 1, 458763, 0, 1, 458762, 0, 1, 458761, 0, 1, 458755, 0, 1, 458754, 0, 1, 393217, 0, 1, 393216, 0, 1, 393218, 0, 1, 393219, 0, 1, 524294, 0, 1, 524295, 0, 1, 524293, 0, 1, 524292, 0, 1, 524291, 0, 1, 524290, 0, 1, 524289, 0, 1, 589832, 0, 1, 589833, 0, 1, 524288, 0, 1)
+script = ExtResource("3_0oadd")
 
 [node name="Player" parent="." instance=ExtResource("2_b2k15")]
 z_index = 1
-position = Vector2(230, 131)
+position = Vector2(288, 163)
 move_speed = 150
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -46,47 +36,8 @@ script = ExtResource("4_poxyh")
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(654, 388)
 
-[node name="Plant" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(173, 212)
+[node name="PlantSpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
-[node name="Plant2" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(324, 193)
-type = 1
-
-[node name="Plant3" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(324, 225)
-type = 1
-growth_stage = 1
-
-[node name="Plant4" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(324, 257)
-type = 1
-growth_stage = 2
-
-[node name="Plant5" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(356, 193)
-type = 2
-
-[node name="Plant6" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(356, 225)
-type = 2
-growth_stage = 1
-
-[node name="Plant7" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(356, 257)
-type = 2
-growth_stage = 2
-
-[node name="Plant8" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(454, 171)
-type = 3
-
-[node name="Plant9" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(455, 208)
-type = 3
-growth_stage = 1
-
-[node name="Plant10" parent="." instance=ExtResource("5_knk13")]
-position = Vector2(461, 253)
-type = 3
-growth_stage = 2
+[connection signal="timeout" from="PlantSpawnTimer" to="." method="spawn_plant_wave"]

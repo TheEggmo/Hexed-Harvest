@@ -8,6 +8,8 @@ enum PlantType{
 	TOMATO
 }
 
+signal plant_removed()
+
 @onready var sprite = $AnimatedSprite2D
 
 @export var type :PlantType
@@ -17,8 +19,8 @@ var growth_stage = 0
 @export var growth_time_variance := Vector2(0.8, 1.2)
 var mature = false
 
-@export var corruption_base_chance = 0.1
-@onready var corruption_chance = corruption_base_chance
+@export var corruption_chance_ramp = 0.1
+@onready var corruption_chance = 0
 var corrupted = false
 
 
@@ -38,6 +40,11 @@ func update_sprite():
 	## But this will work dynamically if I decide to add more plants (which I will surely do)
 	sprite.frame = growth_stage + (type - 1) * 3 + 1
 
+func collect():
+	plant_removed.emit()
+	queue_free()
+	return self
+
 func _on_growth_timer_timeout():
 	if type == PlantType.WEED:
 		return
@@ -53,5 +60,4 @@ func _on_corruption_timer_timeout():
 			update_sprite()
 			$CorruptionTimer.stop()
 		else:
-			pass
-			#corruption_chance += corruption_base_chance
+			corruption_chance += corruption_chance_ramp

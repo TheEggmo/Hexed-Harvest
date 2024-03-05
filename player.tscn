@@ -1,9 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://bsnc521d2nh8w"]
+[gd_scene load_steps=30 format=3 uid="uid://bsnc521d2nh8w"]
 
 [ext_resource type="Script" path="res://PlayerController.gd" id="1_qr6y8"]
 [ext_resource type="Texture2D" uid="uid://bwdh5svnwh4p2" path="res://player.png" id="2_mo73m"]
 [ext_resource type="Script" path="res://PlantDetector.gd" id="3_2jppj"]
 [ext_resource type="Texture2D" uid="uid://brudjqxgo2gwh" path="res://cursor.png" id="4_p4vmt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpdfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41hwx"]
 atlas = ExtResource("2_mo73m")
@@ -343,7 +345,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxn4d"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_qr6y8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_fpdfv")
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bipqo")

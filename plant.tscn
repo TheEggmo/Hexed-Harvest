@@ -94,3 +94,15 @@ sprite_frames = SubResource("SpriteFrames_mg36m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_237xe")
+
+[node name="GrowthTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CorruptionTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
+[connection signal="timeout" from="CorruptionTimer" to="." method="_on_corruption_timer_timeout"]

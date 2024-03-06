@@ -7,6 +7,9 @@ var hold = false
 func _physics_process(delta):
 	move()
 	update_animation()
+	
+	if Input.is_action_just_pressed("interact"):
+		interact()
 
 func move():
 	var move_direction = Input.get_vector("left", "right", "up", "down")
@@ -24,3 +27,18 @@ func update_animation():
 		$Body.flip_h = flip
 		$Body/Arms.flip_h = flip
 		$Body/Eyes.flip_h = flip
+
+func interact():
+	if $HeldPlant.held_plant:
+		if false: #TODO if within deposit box
+			pass
+		else:
+			$HeldPlant.clear_plant() ## Toss plants if not withing deposit box range
+			#TODO add tossing animation
+		hold = false
+	else:
+		var new_plant :Plant = $PlantDetector.collect_plant()
+		if new_plant:
+			if new_plant.type != Plant.PlantType.WEED:
+				$HeldPlant.set_plant(new_plant)
+				hold = true

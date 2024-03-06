@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://xgvwwblg5i63"]
+
+[ext_resource type="Texture2D" uid="uid://ck1or2vvnsa38" path="res://dirtparticle.png" id="1_kgq7a"]
+[ext_resource type="Script" path="res://DirtParticles.gd" id="2_8ss0x"]
+
+[sub_resource type="Curve" id="Curve_1qaju"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hd27a"]
+curve = SubResource("Curve_1qaju")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qvtig"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+angle_max = 720.0
+direction = Vector3(0, -1, 0)
+spread = 35.0
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+alpha_curve = SubResource("CurveTexture_hd27a")
+
+[node name="DirtParticles" type="GPUParticles2D"]
+z_index = 2
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_qvtig")
+texture = ExtResource("1_kgq7a")
+explosiveness = 1.0
+script = ExtResource("2_8ss0x")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

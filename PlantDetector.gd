@@ -3,6 +3,7 @@ extends Area2D
 signal plant_collected(plant :Plant)
 
 var plants = []
+var nearest_plant
 
 @onready var shape := $CollisionShape2D
 @onready var cursor := $AnimatedSprite2D
@@ -12,21 +13,22 @@ func _ready():
 	cursor.top_level = true
 
 func _physics_process(delta):
-	var nearest_plant = find_nearest_plant()
+	find_nearest_plant()
 	highlight_plant(nearest_plant)
-	
-	if Input.is_action_just_pressed("interact") && nearest_plant:
-		plant_collected.emit(nearest_plant.collect())
 
-func find_nearest_plant() -> Plant:
-	var nearest_plant
+func collect_plant():
+	if nearest_plant:
+		return nearest_plant.collect()
+	return null
+
+func find_nearest_plant():
+	nearest_plant = null
 	for plant in plants:
 		if !nearest_plant:
 			nearest_plant = plant
 			continue
 		if plant.global_position.distance_squared_to(shape.global_position) < nearest_plant.global_position.distance_squared_to(shape.global_position):
 			nearest_plant = plant
-	return nearest_plant
 
 func highlight_plant(plant :Plant):
 	if !plant:

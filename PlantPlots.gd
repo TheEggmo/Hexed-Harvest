@@ -14,9 +14,9 @@ func generate_random_plants(amount := 0, type :Plant.PlantType = -1):
 	var select_random_plant = func():
 		return Plant.PlantType.values()[randi() % (Plant.PlantType.size() - 1)]
 	for i in empty_plots.size() if amount == 0 else amount:
-		generate_plant(select_random_plant.call() if type == -1 else type)
 		if empty_plots.is_empty():
 			break
+		generate_plant(select_random_plant.call() if type == -1 else type)
 
 func generate_plant(type :Plant.PlantType):
 	var target_plot = empty_plots.pick_random()

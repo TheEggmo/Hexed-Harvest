@@ -5,6 +5,9 @@ func _ready():
 	one_shot = true
 	emitting = true
 
+func make_white():
+	process_material.color = Color.WHITE
+
 func make_red():
 	process_material.color = Color.RED
 

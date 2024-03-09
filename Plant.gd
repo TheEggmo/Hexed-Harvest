@@ -62,8 +62,7 @@ func collect():
 
 func spawn_dirt_particles():
 	var dirt_instance = dirt_particles.instantiate()
-	if corrupted:
-		dirt_instance.make_red()
+	dirt_instance.make_red() if corrupted else dirt_instance.make_white()
 	dirt_instance.global_position = global_position
 	get_tree().get_root().add_child(dirt_instance)
 

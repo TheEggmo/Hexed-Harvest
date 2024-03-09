@@ -21,11 +21,13 @@ func _physics_process(delta):
 
 func deposit_plant(plant :Plant):
 	if !is_plant_allowed(plant):
-		print("not allowed")
+		#EventBus.spawn_floating_text("wrong plant", global_position)
+		$CursorAnimationPlayer.play("wrong_plant")
 		return false
 	plant.queue_free()
-	EventBus.points += corrupted_points if plant.corrupted else base_points
-	print(EventBus.points)
+	var awarded_points = corrupted_points if plant.corrupted else base_points
+	EventBus.points += awarded_points
+	EventBus.spawn_floating_text(str(awarded_points), global_position)
 	return true
 
 func is_plant_allowed(plant :Plant):

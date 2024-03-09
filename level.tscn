@@ -60,6 +60,7 @@ position = Vector2(671, 448)
 autostart = true
 
 [node name="DepositBox" parent="." instance=ExtResource("6_7rd75")]
-position = Vector2(256, 32)
+position = Vector2(320, 64)
+allowed_plant = 1
 
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="spawn_plant_wave"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://bsnc521d2nh8w"]
+[gd_scene load_steps=41 format=3 uid="uid://bsnc521d2nh8w"]
 
 [ext_resource type="Script" path="res://PlayerController.gd" id="1_qr6y8"]
 [ext_resource type="Texture2D" uid="uid://bwdh5svnwh4p2" path="res://player.png" id="2_mo73m"]
 [ext_resource type="Script" path="res://PlantDetector.gd" id="3_2jppj"]
 [ext_resource type="Texture2D" uid="uid://brudjqxgo2gwh" path="res://cursor.png" id="4_p4vmt"]
+[ext_resource type="Script" path="res://DepositDetector.gd" id="5_cfsoy"]
 [ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://plants-picked.png" id="5_l6csa"]
 [ext_resource type="Script" path="res://HeldPlant.gd" id="6_j3u13"]
 
@@ -346,6 +347,8 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vxn4d"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqted"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_miyby"]
 atlas = ExtResource("5_l6csa")
 region = Rect2(0, 0, 32, 32)
@@ -439,6 +442,16 @@ position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_vxn4d")
 debug_color = Color(0.243137, 0.627451, 0.294118, 0.419608)
 
+[node name="DepositDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_cfsoy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepositDetector"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_cqted")
+debug_color = Color(0.839216, 0.188235, 0.823529, 0.419608)
+
 [node name="HeldPlant" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_a4k3i")
@@ -446,3 +459,5 @@ script = ExtResource("6_j3u13")
 
 [connection signal="area_entered" from="PlantDetector" to="PlantDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="PlantDetector" to="PlantDetector" method="_on_area_exited"]
+[connection signal="area_entered" from="DepositDetector" to="DepositDetector" method="_on_area_entered"]
+[connection signal="area_exited" from="DepositDetector" to="DepositDetector" method="_on_area_exited"]

@@ -57,7 +57,10 @@ func collect():
 		return null
 	spawn_dirt_particles()
 	plant_removed.emit()
-	queue_free()
+	#queue_free()
+	set_physics_process(false)
+	visible = false
+	global_position.x = -1000
 	return self
 
 func spawn_dirt_particles():

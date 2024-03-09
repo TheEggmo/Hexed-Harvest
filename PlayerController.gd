@@ -30,14 +30,15 @@ func update_animation():
 
 func interact():
 	if $HeldPlant.held_plant:
-		if false:
+		if $DepositDetector.nearest_box:
 			## Deposit plant to box
-			#TODO if within deposit box
-			pass
+			if $DepositDetector.nearest_box.deposit_plant($HeldPlant.held_plant):
+				$HeldPlant.clear_plant()
+				hold = false
 		else:
 			## Toss plants if not withing deposit box range
 			$HeldPlant.toss_plant(velocity + Vector2(100 if $Body.flip_h else -100, 0))
-		hold = false
+			hold = false
 	else:
 		## Attempt to pick up plant
 		var new_plant :Plant = $PlantDetector.collect_plant()

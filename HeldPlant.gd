@@ -37,5 +37,5 @@ func toss_plant(velocity := Vector2.ZERO):
 	instance.prep(velocity, frame)
 	instance.global_position = global_position
 	get_tree().get_root().add_child(instance)
-	
+	held_plant.queue_free()
 	clear_plant()

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd7b06i3qahoi"]
+[gd_scene load_steps=11 format=3 uid="uid://bd7b06i3qahoi"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_kwiaa"]
 [ext_resource type="Texture2D" uid="uid://dmdcadavf8q7l" path="res://plants.png" id="1_nn6mc"]
 [ext_resource type="PackedScene" uid="uid://bsnc521d2nh8w" path="res://player.tscn" id="2_b2k15"]
 [ext_resource type="Script" path="res://PlantPlots.gd" id="3_0oadd"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="4_poxyh"]
+[ext_resource type="PackedScene" uid="uid://df1ppiot2rtv7" path="res://deposit_box.tscn" id="6_7rd75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gllw2"]
 texture = ExtResource("1_nn6mc")
@@ -58,5 +59,7 @@ position = Vector2(671, 448)
 [node name="PlantSpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="DepositBox" parent="." instance=ExtResource("6_7rd75")]
 
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="spawn_plant_wave"]

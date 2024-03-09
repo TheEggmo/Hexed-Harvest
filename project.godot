@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 EventBus="*res://EventBus.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 up={
@@ -55,6 +59,7 @@ interact={
 
 2d_physics/layer_1="wall"
 2d_physics/layer_2="plant"
+2d_physics/layer_3="deposit box"
 
 [rendering]
 

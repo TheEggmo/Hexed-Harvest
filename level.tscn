@@ -57,9 +57,9 @@ script = ExtResource("4_poxyh")
 position = Vector2(671, 448)
 
 [node name="PlantSpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
 autostart = true
 
 [node name="DepositBox" parent="." instance=ExtResource("6_7rd75")]
+position = Vector2(256, 32)
 
 [connection signal="timeout" from="PlantSpawnTimer" to="." method="spawn_plant_wave"]

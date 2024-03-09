@@ -3,14 +3,21 @@ extends Area2D
 @export var base_points = 50
 @export var corrupted_points = 100
 
-@export var allow_parsnip := true
-@export var allow_melon := true
-@export var allow_tomato := true
+@export var allowed_plant :Plant.PlantType: ## Weed acts as any type
+	set(val):
+		allowed_plant = val
+		$Sprite/SignParsnip.visible = allowed_plant == Plant.PlantType.PARSNIP
+		$Sprite/SignMelon.visible = allowed_plant == Plant.PlantType.MELON
+		$Sprite/SignTomato.visible = allowed_plant == Plant.PlantType.TOMATO
 
 var highlighted = false:
 	set(val):
 		highlighted = val
-		$Polygon2D.color.a = 1.0 if highlighted else 0.5 #TODO change modulate to display cursor
+		$Sprite/Cursor.visible = highlighted
+
+func _physics_process(delta):
+	if randi() % 1000 == 0:
+		$AnimationPlayer.play("blink")
 
 func deposit_plant(plant :Plant):
 	if !is_plant_allowed(plant):
@@ -22,11 +29,4 @@ func deposit_plant(plant :Plant):
 	return true
 
 func is_plant_allowed(plant :Plant):
-	match plant.type:
-		Plant.PlantType.PARSNIP:
-			return allow_parsnip
-		Plant.PlantType.MELON:
-			return allow_melon
-		Plant.PlantType.TOMATO:
-			return allow_tomato
-	return true
+	return allowed_plant == Plant.PlantType.WEED || allowed_plant == plant.type

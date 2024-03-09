@@ -12,7 +12,7 @@ func generate_plots_list():
 
 func generate_random_plants(amount := 0, type :Plant.PlantType = -1):
 	var select_random_plant = func():
-		return Plant.PlantType.values()[randi() % (Plant.PlantType.size() - 1)]
+		return Plant.PlantType.values()[randi() % (Plant.PlantType.size())]
 	for i in empty_plots.size() if amount == 0 else amount:
 		if empty_plots.is_empty():
 			break

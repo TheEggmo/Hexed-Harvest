@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bsnc521d2nh8w"]
+[gd_scene load_steps=42 format=3 uid="uid://bsnc521d2nh8w"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qr6y8"]
 [ext_resource type="Texture2D" uid="uid://bwdh5svnwh4p2" path="res://Player/player.png" id="2_mo73m"]
@@ -400,9 +400,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqted"]
 radius = 19.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ckf5"]
+radius = 7.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
 script = ExtResource("1_qr6y8")
+move_speed = 150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -410,7 +414,6 @@ shape = SubResource("CircleShape2D_fpdfv")
 
 [node name="Body" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
-rotation = 0.261799
 sprite_frames = SubResource("SpriteFrames_bipqo")
 frame = 1
 
@@ -462,6 +465,13 @@ script = ExtResource("5_cfsoy")
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_cqted")
 debug_color = Color(0.839216, 0.188235, 0.823529, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_5ckf5")
+debug_color = Color(0.956863, 0.192157, 0.188235, 0.419608)
 
 [connection signal="area_entered" from="PlantDetector" to="PlantDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="PlantDetector" to="PlantDetector" method="_on_area_exited"]

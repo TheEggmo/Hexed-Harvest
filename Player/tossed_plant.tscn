@@ -1,30 +1,30 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1wgv3wqnjtwx"]
 
-[ext_resource type="Script" path="res://Player/TossedPlant.gd" id="1_l53mk"]
-[ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://Plants/plants-picked.png" id="2_nk57m"]
+[ext_resource type="Script" path="res://Player/TossedPlant.gd" id="1_nagh5"]
+[ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://Plants/plants-picked.png" id="2_2orbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miyby"]
-atlas = ExtResource("2_nk57m")
+atlas = ExtResource("2_2orbc")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fc5gt"]
-atlas = ExtResource("2_nk57m")
+atlas = ExtResource("2_2orbc")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2f7jh"]
-atlas = ExtResource("2_nk57m")
+atlas = ExtResource("2_2orbc")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vrhg"]
-atlas = ExtResource("2_nk57m")
+atlas = ExtResource("2_2orbc")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hj6xv"]
-atlas = ExtResource("2_nk57m")
+atlas = ExtResource("2_2orbc")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cme5g"]
-atlas = ExtResource("2_nk57m")
+atlas = ExtResource("2_2orbc")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c11in"]
@@ -54,7 +54,7 @@ animations = [{
 }]
 
 [node name="TossedPlant" type="CharacterBody2D"]
-script = ExtResource("1_l53mk")
+script = ExtResource("1_nagh5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c11in")

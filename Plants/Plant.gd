@@ -1,6 +1,9 @@
 class_name Plant
 extends Area2D
 
+## In retrospect I should have made these as separate derieved scenes, 
+## rather than forcing the different plants into one class
+
 enum PlantType{
 	WEED,
 	PARSNIP,
@@ -14,7 +17,7 @@ signal plant_removed()
 	set(val):
 		type = val
 		update_sprite()
-var growth_stage = 0:
+@export var growth_stage = 0:
 	set(val):
 		growth_stage = val
 		update_sprite()
@@ -26,6 +29,11 @@ var mature = false
 @export var corruption_chance_ramp = 0.1
 @onready var corruption_chance = 0
 var corrupted = false
+
+#@export var atk_speed_weed := 3.0
+#@export var atk_speed_parsnip := 3.0
+#@export var atk_speed_melon := 3.0
+#@export var atk_speed_tomato := 3.0
 
 var dirt_particles = preload("res://DirtParticles/dirt_particles.tscn")
 
@@ -81,5 +89,36 @@ func _on_corruption_timer_timeout():
 			corrupted = true
 			self.growth_stage = 2
 			$CorruptionTimer.stop()
+			$AttackTimer.start()
 		else:
 			corruption_chance += corruption_chance_ramp
+
+func attack():
+	if !corrupted:
+		return
+	match type:
+		PlantType.WEED:
+			attack_weed()
+		PlantType.PARSNIP:
+			attack_parsnip()
+		PlantType.MELON:
+			attack_melon()
+		PlantType.TOMATO:
+			attack_tomato()
+
+func attack_weed():
+	pass
+
+func attack_parsnip():
+	pass
+
+func attack_melon():
+	pass
+
+var tomato_projectile_scene = preload("res://Plants/Attacks/tomato_projectile.tscn")
+func attack_tomato():
+	for i in 3:
+		var atk_scene = tomato_projectile_scene.instantiate()
+		atk_scene.velocity = Vector2.RIGHT.rotated(randf() * TAU)
+		atk_scene.global_position = global_position
+		Global.add_child(atk_scene)

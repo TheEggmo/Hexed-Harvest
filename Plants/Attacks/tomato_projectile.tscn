@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://brojul55onimt"]
+
+[ext_resource type="Texture2D" uid="uid://bujh7b2g6i17k" path="res://Plants/Attacks/projectiles.png" id="1_2m1g3"]
+[ext_resource type="Script" path="res://Plants/Attacks/tomato_projectile.gd" id="1_x2ll3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afrd0"]
+radius = 4.12311
+
+[node name="TomatoProjectile" type="CharacterBody2D"]
+z_index = 3
+script = ExtResource("1_x2ll3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2m1g3")
+region_enabled = true
+region_rect = Rect2(10, 10, 14, 14)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_afrd0")
+
+[node name="TimeoutTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="PrimerTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimeoutTimer" to="." method="_on_timeout_timer_timeout"]
+[connection signal="timeout" from="PrimerTimer" to="." method="_on_primer_timer_timeout"]

@@ -119,6 +119,8 @@ wait_time = 3.0
 autostart = true
 
 [node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.0
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
 [connection signal="timeout" from="CorruptionTimer" to="." method="_on_corruption_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="attack"]

@@ -23,6 +23,10 @@ Global="*res://EventBus.gd"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/bartl/Desktop/out.avi"
+
 [input]
 
 up={

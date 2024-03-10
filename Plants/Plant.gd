@@ -97,7 +97,7 @@ func _on_corruption_timer_timeout():
 			corrupted = true
 			self.growth_stage = 2
 			$CorruptionTimer.stop()
-			if $AttackTimer:
+			if get_node_or_null("AttackTimer"):
 				$AttackTimer.start()
 		else:
 			corruption_chance += corruption_chance_ramp
@@ -124,8 +124,11 @@ func attack_parsnip():
 	atk_scene.global_position = $ParsnipBeamOrigin.global_position
 	Global.add_child(atk_scene)
 
+var melon_projectile_scene = preload("res://Plants/Attacks/melon_projectile.tscn")
 func attack_melon():
-	pass
+	var atk_scene = melon_projectile_scene.instantiate()
+	atk_scene.global_position = global_position
+	Global.add_child(atk_scene)
 
 var tomato_projectile_scene = preload("res://Plants/Attacks/tomato_projectile.tscn")
 func attack_tomato():

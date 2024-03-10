@@ -12,7 +12,7 @@ func _ready():
 	highlight_plant(null)
 	cursor.top_level = true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	find_nearest_plant()
 	highlight_plant(nearest_plant)
 

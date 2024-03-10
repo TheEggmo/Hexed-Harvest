@@ -17,7 +17,8 @@ signal plant_removed()
 	set(val):
 		type = val
 		update_sprite()
-@export var growth_stage = 0:
+
+var growth_stage = 0:
 	set(val):
 		growth_stage = val
 		update_sprite()
@@ -44,6 +45,7 @@ func _ready():
 		mature = true
 	else:
 		start_growth_timer()
+		Global.player_died.connect(disable)
 
 func start_growth_timer():
 	$GrowthTimer.start(growth_time * randf_range(growth_time_variance.x, growth_time_variance.y))
@@ -65,11 +67,17 @@ func collect():
 		return null
 	spawn_dirt_particles()
 	plant_removed.emit()
-	#queue_free()
-	set_physics_process(false)
 	visible = false
 	global_position.x = -1000
+	disable()
 	return self
+
+func disable():
+	set_physics_process(false)
+	$AttackTimer.queue_free()
+	#for c in get_children():
+		#if c is Timer:
+			#c.stop()
 
 func spawn_dirt_particles():
 	var dirt_instance = dirt_particles.instantiate()
@@ -89,7 +97,8 @@ func _on_corruption_timer_timeout():
 			corrupted = true
 			self.growth_stage = 2
 			$CorruptionTimer.stop()
-			$AttackTimer.start()
+			if $AttackTimer:
+				$AttackTimer.start()
 		else:
 			corruption_chance += corruption_chance_ramp
 
@@ -109,8 +118,11 @@ func attack():
 func attack_weed():
 	pass
 
+var parsnip_projectile_scene = preload("res://Plants/Attacks/parsnip_projectile.tscn")
 func attack_parsnip():
-	pass
+	var atk_scene = parsnip_projectile_scene.instantiate()
+	atk_scene.global_position = $ParsnipBeamOrigin.global_position
+	Global.add_child(atk_scene)
 
 func attack_melon():
 	pass

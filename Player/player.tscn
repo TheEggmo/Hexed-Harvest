@@ -1,12 +1,14 @@
-[gd_scene load_steps=42 format=3 uid="uid://bsnc521d2nh8w"]
+[gd_scene load_steps=47 format=3 uid="uid://bsnc521d2nh8w"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qr6y8"]
 [ext_resource type="Texture2D" uid="uid://bwdh5svnwh4p2" path="res://Player/player.png" id="2_mo73m"]
 [ext_resource type="Script" path="res://Player/PlantDetector.gd" id="3_2jppj"]
 [ext_resource type="Texture2D" uid="uid://brudjqxgo2gwh" path="res://Player/cursor.png" id="4_p4vmt"]
+[ext_resource type="Script" path="res://Player/HPController.gd" id="5_4icno"]
 [ext_resource type="Script" path="res://Player/DepositDetector.gd" id="5_cfsoy"]
 [ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://Plants/plants-picked.png" id="5_l6csa"]
 [ext_resource type="Script" path="res://Player/HeldPlant.gd" id="6_j3u13"]
+[ext_resource type="Script" path="res://Player/Hurtbox.gd" id="6_kjd3u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpdfv"]
 
@@ -366,6 +368,93 @@ _data = {
 "RunHold": SubResource("Animation_lgklu")
 }
 
+[sub_resource type="Animation" id="Animation_jig8c"]
+resource_name = "iframes"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arms:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Eyes:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2pyh1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Body/Arms:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Body/Eyes:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_titcc"]
+_data = {
+"RESET": SubResource("Animation_2pyh1"),
+"iframes": SubResource("Animation_jig8c")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ckf5"]
+radius = 7.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_y8t8n"]
 atlas = ExtResource("4_p4vmt")
 region = Rect2(0, 0, 18, 18)
@@ -399,9 +488,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqted"]
 radius = 19.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5ckf5"]
-radius = 7.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
@@ -438,6 +524,25 @@ libraries = {
 }
 autoplay = "Idle"
 
+[node name="IFrameAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_titcc")
+}
+
+[node name="HPController" type="Node2D" parent="."]
+script = ExtResource("5_4icno")
+max_hp = 1
+
+[node name="Hurtbox" type="Area2D" parent="HPController"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("6_kjd3u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HPController/Hurtbox" groups=["player_hurtbox"]]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_5ckf5")
+debug_color = Color(0.956863, 0.192157, 0.188235, 0.419608)
+
 [node name="PlantDetector" type="Area2D" parent="."]
 position = Vector2(0, -7)
 collision_layer = 0
@@ -466,13 +571,10 @@ position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_cqted")
 debug_color = Color(0.839216, 0.188235, 0.823529, 0.419608)
 
-[node name="Hurtbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, -10)
-shape = SubResource("CircleShape2D_5ckf5")
-debug_color = Color(0.956863, 0.192157, 0.188235, 0.419608)
-
+[connection signal="animation_finished" from="IFrameAnimation" to="." method="_on_i_frame_animation_animation_finished"]
+[connection signal="hp_depleted" from="HPController" to="." method="_on_hp_controller_hp_depleted"]
+[connection signal="hp_lost" from="HPController" to="." method="_on_hp_controller_hp_lost"]
+[connection signal="attack_detected" from="HPController/Hurtbox" to="HPController" method="_on_hurtbox_attack_detected"]
 [connection signal="area_entered" from="PlantDetector" to="PlantDetector" method="_on_area_entered"]
 [connection signal="area_exited" from="PlantDetector" to="PlantDetector" method="_on_area_exited"]
 [connection signal="area_entered" from="DepositDetector" to="DepositDetector" method="_on_area_entered"]

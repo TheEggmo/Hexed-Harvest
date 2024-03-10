@@ -106,7 +106,8 @@ script = ExtResource("1_2oe03")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mg36m")
-animation = &"melon"
+animation = &"parsnip"
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_237xe")
@@ -120,6 +121,9 @@ autostart = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="ParsnipBeamOrigin" type="Marker2D" parent="."]
+position = Vector2(0, -6)
 
 [connection signal="timeout" from="GrowthTimer" to="." method="_on_growth_timer_timeout"]
 [connection signal="timeout" from="CorruptionTimer" to="." method="_on_corruption_timer_timeout"]

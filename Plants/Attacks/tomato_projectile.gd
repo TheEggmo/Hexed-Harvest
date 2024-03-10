@@ -9,7 +9,7 @@ func _ready():
 	var slowdown = create_tween()
 	slowdown.tween_property(self, "velocity", Vector2.ZERO, 0.2)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide()
 
 func _on_timeout_timer_timeout():
@@ -22,3 +22,7 @@ func _on_primer_timer_timeout():
 	var direction = global_position.direction_to(Global.get_player_position())
 	var accelerate = create_tween()
 	accelerate.tween_property(self, "velocity", direction * move_speed, 1.5)
+
+func _on_hitbox_area_entered(area):
+	area.activate()
+	queue_free()

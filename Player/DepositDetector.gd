@@ -5,7 +5,7 @@ var nearest_box
 
 @onready var shape := $CollisionShape2D
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if nearest_box:
 		nearest_box.highlighted = false
 	_find_nearest_box()

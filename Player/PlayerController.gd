@@ -7,7 +7,7 @@ extends CharacterBody2D
 var hold = false
 var sprint = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move()
 	update_animation()
 	
@@ -54,3 +54,22 @@ func interact():
 			if new_plant.type != Plant.PlantType.WEED:
 				held_plant.set_plant(new_plant)
 				hold = true
+
+func _on_hp_controller_hp_lost():
+	$HPController.enabled = false
+	$IFrameAnimation.play("iframes")
+
+func _on_hp_controller_hp_depleted():
+	queue_free()
+	Global.player_died.emit()
+	## Reparent the camera so that it doesn't get deleted along with the player
+	for c in get_children():
+		if c is Camera2D:
+			remove_child(c)
+			c.global_position = global_position
+			get_parent().add_child(c)
+			break
+	 #TODO Add a death animation
+
+func _on_i_frame_animation_animation_finished(_anim_name):
+	$HPController.enabled = true

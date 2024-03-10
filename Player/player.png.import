@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ul3qkkbka0u"
-path="res://.godot/imported/plants-picked.png-d406f11de1bb61cd70b4d22c1fef6c75.ctex"
+uid="uid://bwdh5svnwh4p2"
+path="res://.godot/imported/player.png-e0de26b393baa489289b0e229c9561a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plants-picked.png"
-dest_files=["res://.godot/imported/plants-picked.png-d406f11de1bb61cd70b4d22c1fef6c75.ctex"]
+source_file="res://Player/player.png"
+dest_files=["res://.godot/imported/player.png-e0de26b393baa489289b0e229c9561a8.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
 mipmaps/limit=-1
-roughness/mode=0
+roughness/mode=1
 roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

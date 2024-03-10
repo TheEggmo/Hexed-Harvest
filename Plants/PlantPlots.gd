@@ -2,7 +2,7 @@ extends TileMap
 
 var empty_plots = []
 
-var plant_scene = preload("res://plant.tscn")
+var plant_scene = preload("res://Plants/plant.tscn")
 
 func _ready():
 	generate_plots_list()

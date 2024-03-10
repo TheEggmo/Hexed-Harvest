@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://botuis6341apu"
-path="res://.godot/imported/depositbox.png-11c0def9fcfaa1d77cd49e8050124496.ctex"
+uid="uid://dyafu62qfcp5u"
+path="res://.godot/imported/depositbox_cursor.png-1c56175b18dc95ec2ab2552edde4a520.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://depositbox.png"
-dest_files=["res://.godot/imported/depositbox.png-11c0def9fcfaa1d77cd49e8050124496.ctex"]
+source_file="res://DepositBox/depositbox_cursor.png"
+dest_files=["res://.godot/imported/depositbox_cursor.png-1c56175b18dc95ec2ab2552edde4a520.ctex"]
 
 [params]
 

@@ -27,7 +27,7 @@ var mature = false
 @onready var corruption_chance = 0
 var corrupted = false
 
-var dirt_particles = preload("res://dirt_particles.tscn")
+var dirt_particles = preload("res://DirtParticles/dirt_particles.tscn")
 
 func _ready():
 	update_sprite()
@@ -67,7 +67,7 @@ func spawn_dirt_particles():
 	var dirt_instance = dirt_particles.instantiate()
 	dirt_instance.make_red() if corrupted else dirt_instance.make_white()
 	dirt_instance.global_position = global_position
-	get_tree().get_root().add_child(dirt_instance)
+	Global.add_child(dirt_instance)
 
 func _on_growth_timer_timeout():
 	if type == PlantType.WEED:

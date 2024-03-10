@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1wgv3wqnjtwx"]
 
-[ext_resource type="Script" path="res://TossedPlant.gd" id="1_l53mk"]
-[ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://plants-picked.png" id="2_nk57m"]
+[ext_resource type="Script" path="res://Player/TossedPlant.gd" id="1_l53mk"]
+[ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://Plants/plants-picked.png" id="2_nk57m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miyby"]
 atlas = ExtResource("2_nk57m")

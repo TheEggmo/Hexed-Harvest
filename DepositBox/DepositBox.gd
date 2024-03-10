@@ -15,6 +15,9 @@ var highlighted = false:
 		highlighted = val
 		$Sprite/Cursor.visible = highlighted
 
+func _ready():
+	$Sprite/Cursor.visible = false
+
 func _physics_process(delta):
 	if randi() % 1000 == 0:
 		$AnimationPlayer.play("blink")
@@ -26,8 +29,8 @@ func deposit_plant(plant :Plant):
 		return false
 	plant.queue_free()
 	var awarded_points = corrupted_points if plant.corrupted else base_points
-	EventBus.points += awarded_points
-	EventBus.spawn_floating_text(str(awarded_points), global_position)
+	Global.points += awarded_points
+	Global.spawn_floating_text(str(awarded_points), global_position)
 	return true
 
 func is_plant_allowed(plant :Plant):

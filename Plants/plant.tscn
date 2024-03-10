@@ -1,46 +1,46 @@
 [gd_scene load_steps=15 format=3 uid="uid://byd6pg53kkhah"]
 
-[ext_resource type="Script" path="res://Plant.gd" id="1_itgo2"]
-[ext_resource type="Texture2D" uid="uid://dmdcadavf8q7l" path="res://plants.png" id="2_73rll"]
+[ext_resource type="Script" path="res://Plants/Plant.gd" id="1_2oe03"]
+[ext_resource type="Texture2D" uid="uid://dmdcadavf8q7l" path="res://Plants/plants.png" id="2_rfi3t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ibwtp"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5ow1"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skebo"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu8la"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_muw66"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cn3s"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fvosv"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0vlch"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcwnj"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nofw5"]
-atlas = ExtResource("2_73rll")
+atlas = ExtResource("2_rfi3t")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mg36m"]
@@ -102,7 +102,7 @@ size = Vector2(32, 32)
 [node name="Plant" type="Area2D"]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_itgo2")
+script = ExtResource("1_2oe03")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mg36m")

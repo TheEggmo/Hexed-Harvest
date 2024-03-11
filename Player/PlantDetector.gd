@@ -24,6 +24,8 @@ func collect_plant():
 func find_nearest_plant():
 	nearest_plant = null
 	for plant in plants:
+		if !plant.mature:
+			continue
 		if !nearest_plant:
 			nearest_plant = plant
 			continue

@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://HUD/HeartContainer.gd" id="1_7dtdb"]
 [ext_resource type="Texture2D" uid="uid://bdf1gts3rdpf1" path="res://HUD/heartcontainer.png" id="1_hhtud"]
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_tlw6n"]
-[ext_resource type="FontFile" uid="uid://it6n85j002bv" path="res://Text/outline_pixel-7_solid.ttf" id="4_htf5a"]
+[ext_resource type="FontFile" uid="uid://dtxlf5jh5sirv" path="res://Text/Font/ka1.ttf" id="4_1wadr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h4nfi"]
-font = ExtResource("4_htf5a")
-font_size = 32
+font = ExtResource("4_1wadr")
+font_size = 31
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 

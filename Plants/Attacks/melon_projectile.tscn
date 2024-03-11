@@ -150,7 +150,6 @@ height = 50.0
 [node name="MelonProjectile" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_vpig3")
-windup = false
 
 [node name="Lower" type="Sprite2D" parent="."]
 position = Vector2(0, 8)

@@ -73,8 +73,10 @@ func collect():
 	return self
 
 func disable():
-	set_physics_process(false)
-	$AttackTimer.queue_free()
+	if get_parent():
+		get_parent().remove_child(self)
+	#set_physics_process(false)
+	#$AttackTimer.queue_free()
 	#for c in get_children():
 		#if c is Timer:
 			#c.stop()
@@ -122,12 +124,14 @@ var parsnip_projectile_scene = preload("res://Plants/Attacks/parsnip_projectile.
 func attack_parsnip():
 	var atk_scene = parsnip_projectile_scene.instantiate()
 	atk_scene.global_position = $ParsnipBeamOrigin.global_position
+	tree_exiting.connect(atk_scene.queue_free)
 	Global.add_child(atk_scene)
 
 var melon_projectile_scene = preload("res://Plants/Attacks/melon_projectile.tscn")
 func attack_melon():
 	var atk_scene = melon_projectile_scene.instantiate()
 	atk_scene.global_position = global_position
+	tree_exiting.connect(atk_scene.queue_free)
 	Global.add_child(atk_scene)
 
 var tomato_projectile_scene = preload("res://Plants/Attacks/tomato_projectile.tscn")

@@ -49,7 +49,6 @@ func interact():
 	else:
 		## Attempt to pick up plant
 		var new_plant :Plant = $PlantDetector.collect_plant()
-		print(new_plant)
 		if new_plant:
 			if new_plant.type != Plant.PlantType.WEED:
 				held_plant.set_plant(new_plant)

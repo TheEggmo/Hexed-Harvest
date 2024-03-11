@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dtxlf5jh5sirv"
-path="res://.godot/imported/ka1.ttf-79bf96a15723b27599c69f27200e5ba4.fontdata"
+uid="uid://da51eahxyptwu"
+path="res://.godot/imported/pcsenior.ttf-0ed36b387e384e6bc21548305b648acf.fontdata"
 
 [deps]
 
-source_file="res://Text/Font/ka1.ttf"
-dest_files=["res://.godot/imported/ka1.ttf-79bf96a15723b27599c69f27200e5ba4.fontdata"]
+source_file="res://Text/Font/pcsenior.ttf"
+dest_files=["res://.godot/imported/pcsenior.ttf-0ed36b387e384e6bc21548305b648acf.fontdata"]
 
 [params]
 
@@ -31,8 +31,7 @@ preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
+"size": Vector2i(16, 0)
 }]
 language_support={}
 script_support={}

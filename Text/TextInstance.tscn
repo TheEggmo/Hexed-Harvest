@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ydv40stph6si"]
 
 [ext_resource type="Script" path="res://Text/TextInstance.gd" id="1_hbnom"]
-[ext_resource type="FontFile" uid="uid://dtxlf5jh5sirv" path="res://Text/Font/ka1.ttf" id="2_btfjl"]
+[ext_resource type="FontFile" uid="uid://da51eahxyptwu" path="res://Text/Font/pcsenior.ttf" id="2_jaa77"]
 
 [sub_resource type="Animation" id="1"]
 length = 0.001
@@ -89,8 +89,9 @@ _data = {
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_w2ttw"]
-font = ExtResource("2_btfjl")
+font = ExtResource("2_jaa77")
 font_size = 20
+outline_size = 11
 outline_color = Color(0, 0, 0, 1)
 
 [node name="TextInstance" type="Node2D"]

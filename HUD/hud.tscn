@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://HUD/HeartContainer.gd" id="1_7dtdb"]
 [ext_resource type="Texture2D" uid="uid://bdf1gts3rdpf1" path="res://HUD/heartcontainer.png" id="1_hhtud"]
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_tlw6n"]
-[ext_resource type="FontFile" uid="uid://dtxlf5jh5sirv" path="res://Text/Font/ka1.ttf" id="4_1wadr"]
+[ext_resource type="FontFile" uid="uid://da51eahxyptwu" path="res://Text/Font/pcsenior.ttf" id="4_nb1gn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h4nfi"]
-font = ExtResource("4_1wadr")
+font = ExtResource("4_nb1gn")
 font_size = 31
-outline_size = 5
+outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [node name="HUD" type="MarginContainer"]
@@ -21,6 +21,11 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 script = ExtResource("1_tlw6n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+color = Color(0, 1, 0, 1)
 
 [node name="HeartContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -55,7 +60,7 @@ stretch_mode = 2
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-text = "pointsdassdasadsadsdasadas"
+text = "1234567890"
 label_settings = SubResource("LabelSettings_h4nfi")
 horizontal_alignment = 2
 uppercase = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://butwc8rnuoeth"]
 
-[ext_resource type="Script" path="res://ParsnipProjectile.gd" id="1_k7egg"]
+[ext_resource type="Script" path="res://Plants/Attacks/ParsnipProjectile.gd" id="1_k7egg"]
 [ext_resource type="Texture2D" uid="uid://ddpye7p6xs4id" path="res://Plants/Attacks/beam.png" id="2_1dho5"]
 
 [node name="ParsnipProjectile" type="Node2D"]

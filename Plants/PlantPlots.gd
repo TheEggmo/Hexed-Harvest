@@ -1,5 +1,7 @@
 extends TileMap
 
+@export var demo_mode := false
+
 var empty_plots = []
 
 var plant_scene = preload("res://Plants/plant.tscn")
@@ -31,4 +33,6 @@ func generate_plant(type :Plant.PlantType):
 	plant_instance.type = type
 	plant_instance.position = map_to_local(target_plot)
 	plant_instance.plant_removed.connect(func(): empty_plots.append(target_plot))
+	if demo_mode:
+		plant_instance.get_node("AttackTimer").queue_free()
 	add_child(plant_instance)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://2ivyuol2wnja"]
+
+[ext_resource type="Texture2D" uid="uid://dmdcadavf8q7l" path="res://Plants/plants.png" id="1_exd2x"]
+[ext_resource type="Script" path="res://Plants/PlantPlots.gd" id="2_y7cdb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gllw2"]
+texture = ExtResource("1_exd2x")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yfawj"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_gllw2")
+
+[node name="PlantPlots" type="TileMap"]
+tile_set = SubResource("TileSet_yfawj")
+format = 2
+script = ExtResource("2_y7cdb")

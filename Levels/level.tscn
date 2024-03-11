@@ -26,6 +26,7 @@ sources/0 = SubResource("TileSetAtlasSource_t820j")
 script = ExtResource("1_kwiaa")
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="HUD" parent="HUDLayer" instance=ExtResource("7_fm84m")]
 

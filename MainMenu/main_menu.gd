@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	Global.points = 0
+
 func _on_timer_timeout():
 	$PlantPlots.generate_random_plants(5)
 

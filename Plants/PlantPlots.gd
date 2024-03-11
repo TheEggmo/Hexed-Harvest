@@ -8,6 +8,8 @@ var plant_scene = preload("res://Plants/plant.tscn")
 
 func _ready():
 	generate_plots_list()
+	
+	Global.player_died.connect(set.bind("demo_mode", true))
 
 func generate_plots_list():
 	empty_plots = get_used_cells(0)

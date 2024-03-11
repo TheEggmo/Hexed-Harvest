@@ -10,6 +10,10 @@ var points = 0:
 	set(val):
 		points = val
 		points_changed.emit(points)
+var highscore = 0
+
+var run_start_time = 0
+var run_end_time = 0
 
 func _ready():
 	restart.connect(cleanup)
@@ -32,3 +36,7 @@ func get_player_position():
 	if player:
 		player_pos = player.global_position
 	return player_pos
+
+func get_survived_time():
+	#return run_end_time - run_start_time
+	return 123 #TODO Return real time and update start and end time when player readies and dies respectively

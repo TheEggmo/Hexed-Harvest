@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdyq0uvrhmxoj"]
+[gd_scene load_steps=10 format=3 uid="uid://bdyq0uvrhmxoj"]
 
 [ext_resource type="Script" path="res://HUD/HeartContainer.gd" id="1_7dtdb"]
 [ext_resource type="Texture2D" uid="uid://bdf1gts3rdpf1" path="res://HUD/heartcontainer.png" id="1_hhtud"]
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_tlw6n"]
 [ext_resource type="FontFile" uid="uid://da51eahxyptwu" path="res://Text/Font/pcsenior.ttf" id="4_nb1gn"]
+[ext_resource type="Script" path="res://HUD/ScoreDisplay.gd" id="5_mr0i4"]
+[ext_resource type="Script" path="res://MainMenu/MainMenuButton.gd" id="5_y6gsi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h4nfi"]
 font = ExtResource("4_nb1gn")
@@ -11,7 +13,14 @@ font_size = 31
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vb3s1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8d6j"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="HUD" type="MarginContainer"]
+z_index = 10
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -59,3 +68,79 @@ text = "1234567890"
 label_settings = SubResource("LabelSettings_h4nfi")
 horizontal_alignment = 2
 uppercase = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vb3s1")
+
+[node name="ScoreDisplay" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+script = ExtResource("5_mr0i4")
+display_delay = 1.0
+
+[node name="TimeSurvived" type="Label" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_nb1gn")
+text = "Time Surived:"
+horizontal_alignment = 1
+
+[node name="TimeSurvivedCount" type="Label" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_nb1gn")
+text = "12:34"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_nb1gn")
+text = "Score:"
+horizontal_alignment = 1
+
+[node name="ScoreCount" type="Label" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_nb1gn")
+text = "1234567890"
+horizontal_alignment = 1
+
+[node name="HighScore" type="Label" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_nb1gn")
+text = "High Score:"
+horizontal_alignment = 1
+
+[node name="HighScoreCount" type="Label" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+theme_override_constants/line_spacing = 9
+theme_override_fonts/font = ExtResource("4_nb1gn")
+text = "1234567890
+NEW RECORD!"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CenterContainer/PanelContainer/ScoreDisplay"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("4_nb1gn")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_s8d6j")
+text = "Return to Main Menu"
+flat = true
+script = ExtResource("5_y6gsi")
+
+[connection signal="mouse_entered" from="CenterContainer/PanelContainer/ScoreDisplay/Button" to="CenterContainer/PanelContainer/ScoreDisplay/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CenterContainer/PanelContainer/ScoreDisplay/Button" to="CenterContainer/PanelContainer/ScoreDisplay/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/ScoreDisplay/Button" to="." method="_on_button_pressed"]

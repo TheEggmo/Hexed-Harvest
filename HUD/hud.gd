@@ -6,3 +6,7 @@ func _ready():
 
 func update_points(points):
 	$Points.text = str(points)
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://MainMenu/main_menu.tscn")

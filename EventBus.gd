@@ -1,5 +1,6 @@
 extends Node
 
+signal player_hp_changed(new_amount :int)
 signal player_died
 signal restart
 signal camera_limit_changed(rect :Rect2)

@@ -45,7 +45,7 @@ func _ready():
 		mature = true
 	else:
 		start_growth_timer()
-		Global.player_died.connect(disable)
+		Global.player_died.connect(disable.bind(false))
 
 func start_growth_timer():
 	$GrowthTimer.start(growth_time * randf_range(growth_time_variance.x, growth_time_variance.y))
@@ -72,11 +72,11 @@ func collect():
 	disable()
 	return self
 
-func disable():
-	if get_parent():
+func disable(remove := true):
+	if get_parent() && remove:
 		get_parent().remove_child(self)
-	#set_physics_process(false)
-	#$AttackTimer.queue_free()
+	set_physics_process(false)
+	$AttackTimer.queue_free()
 	#for c in get_children():
 		#if c is Timer:
 			#c.stop()

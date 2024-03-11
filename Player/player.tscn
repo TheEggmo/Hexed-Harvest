@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bsnc521d2nh8w"]
+[gd_scene load_steps=48 format=3 uid="uid://bsnc521d2nh8w"]
 
 [ext_resource type="Script" path="res://Player/PlayerController.gd" id="1_qr6y8"]
 [ext_resource type="Texture2D" uid="uid://bwdh5svnwh4p2" path="res://Player/player.png" id="2_mo73m"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0ul3qkkbka0u" path="res://Plants/plants-picked.png" id="5_l6csa"]
 [ext_resource type="Script" path="res://Player/HeldPlant.gd" id="6_j3u13"]
 [ext_resource type="Script" path="res://Player/Hurtbox.gd" id="6_kjd3u"]
+[ext_resource type="PackedScene" uid="uid://bdyq0uvrhmxoj" path="res://HUD/hud.tscn" id="10_5beym"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpdfv"]
 
@@ -532,7 +533,6 @@ libraries = {
 
 [node name="HPController" type="Node2D" parent="."]
 script = ExtResource("5_4icno")
-max_hp = 1000
 
 [node name="Hurtbox" type="Area2D" parent="HPController"]
 collision_layer = 8
@@ -571,6 +571,17 @@ script = ExtResource("5_cfsoy")
 position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_cqted")
 debug_color = Color(0.839216, 0.188235, 0.823529, 0.419608)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+follow_viewport_enabled = true
+
+[node name="HUD" parent="." instance=ExtResource("10_5beym")]
+visible = false
+offset_left = -48.0
+offset_top = -22.0
+offset_right = -48.0
+offset_bottom = -22.0
 
 [connection signal="animation_finished" from="IFrameAnimation" to="." method="_on_i_frame_animation_animation_finished"]
 [connection signal="hp_depleted" from="HPController" to="." method="_on_hp_controller_hp_depleted"]

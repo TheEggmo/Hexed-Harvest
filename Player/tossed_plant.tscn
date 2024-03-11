@@ -54,6 +54,7 @@ animations = [{
 }]
 
 [node name="TossedPlant" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_nagh5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

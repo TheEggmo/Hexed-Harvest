@@ -493,7 +493,7 @@ radius = 19.0
 z_index = 1
 collision_layer = 0
 script = ExtResource("1_qr6y8")
-move_speed = 150
+move_speed = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
@@ -532,6 +532,7 @@ libraries = {
 
 [node name="HPController" type="Node2D" parent="."]
 script = ExtResource("5_4icno")
+max_hp = 1000
 
 [node name="Hurtbox" type="Area2D" parent="HPController"]
 collision_layer = 8

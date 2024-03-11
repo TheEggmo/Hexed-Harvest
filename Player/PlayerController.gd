@@ -45,17 +45,23 @@ func interact():
 				hold = false
 		else:
 			## Toss plants if not withing deposit box range
-			held_plant.toss_plant(velocity + Vector2(100 if $Body.flip_h else -100, 0))
-			hold = false
+			toss_plant()
 	else:
 		## Attempt to pick up plant
 		var new_plant :Plant = $PlantDetector.collect_plant()
+		print(new_plant)
 		if new_plant:
 			if new_plant.type != Plant.PlantType.WEED:
 				held_plant.set_plant(new_plant)
 				hold = true
 
+func toss_plant():
+	held_plant.toss_plant(velocity + Vector2(100 if $Body.flip_h else -100, 0))
+	hold = false
+
 func _on_hp_controller_hp_lost():
+	if held_plant.held_plant:
+		toss_plant()
 	$HPController.enabled = false
 	$IFrameAnimation.play("iframes")
 

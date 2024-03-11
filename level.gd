@@ -8,6 +8,5 @@ func _ready():
 	
 	spawn_plant_wave()
 
-
 func spawn_plant_wave():
 	$PlantPlots.generate_random_plants(plants_per_wave)

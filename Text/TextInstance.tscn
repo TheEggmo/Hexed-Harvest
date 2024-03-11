@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ydv40stph6si"]
+[gd_scene load_steps=7 format=3 uid="uid://ydv40stph6si"]
 
 [ext_resource type="Script" path="res://Text/TextInstance.gd" id="1_hbnom"]
+[ext_resource type="FontFile" uid="uid://it6n85j002bv" path="res://Text/outline_pixel-7_solid.ttf" id="2_ddbjb"]
 
 [sub_resource type="Animation" id="1"]
 length = 0.001
@@ -87,6 +88,12 @@ _data = {
 "Run": SubResource("2")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_w2ttw"]
+font = ExtResource("2_ddbjb")
+font_size = 20
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [node name="TextInstance" type="Node2D"]
 z_index = 10
 script = ExtResource("1_hbnom")
@@ -103,6 +110,7 @@ use_top_left = true
 [node name="Label" type="Label" parent="CenterContainer"]
 layout_mode = 2
 text = "TEXT"
+label_settings = SubResource("LabelSettings_w2ttw")
 uppercase = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

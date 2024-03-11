@@ -4,10 +4,7 @@ signal hp_lost
 signal hp_depleted
 
 @export var max_hp = 3
-@onready var hp = max_hp:
-	set(val):
-		hp = val
-		#Global.player_hp_changed.emit(hp)
+@onready var hp = max_hp
 
 @export var enabled = true
 

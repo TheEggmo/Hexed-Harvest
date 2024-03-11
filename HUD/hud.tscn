@@ -1,47 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdyq0uvrhmxoj"]
+[gd_scene load_steps=6 format=3 uid="uid://bdyq0uvrhmxoj"]
 
 [ext_resource type="Script" path="res://HUD/HeartContainer.gd" id="1_7dtdb"]
 [ext_resource type="Texture2D" uid="uid://bdf1gts3rdpf1" path="res://HUD/heartcontainer.png" id="1_hhtud"]
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_tlw6n"]
+[ext_resource type="FontFile" uid="uid://it6n85j002bv" path="res://Text/outline_pixel-7_solid.ttf" id="4_htf5a"]
 
-[node name="HUD" type="Control"]
-layout_mode = 3
+[sub_resource type="LabelSettings" id="LabelSettings_h4nfi"]
+font = ExtResource("4_htf5a")
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+script = ExtResource("1_tlw6n")
 
 [node name="HeartContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-offset_right = 68.0
-offset_bottom = 32.0
+layout_mode = 2
 script = ExtResource("1_7dtdb")
 
 [node name="Heart" type="TextureRect" parent="HeartContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_hhtud")
+stretch_mode = 2
 
 [node name="Heart2" type="TextureRect" parent="HeartContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_hhtud")
 stretch_mode = 2
 
 [node name="Heart3" type="TextureRect" parent="HeartContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_hhtud")
 stretch_mode = 2
 
 [node name="Heart4" type="TextureRect" parent="HeartContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_hhtud")
 stretch_mode = 2
 
 [node name="Heart5" type="TextureRect" parent="HeartContainer"]
-visible = false
 layout_mode = 2
 texture = ExtResource("1_hhtud")
 stretch_mode = 2
+
+[node name="Points" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "pointsdassdasadsadsdasadas"
+label_settings = SubResource("LabelSettings_h4nfi")
+horizontal_alignment = 2
+uppercase = true

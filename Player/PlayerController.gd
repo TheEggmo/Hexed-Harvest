@@ -7,6 +7,9 @@ extends CharacterBody2D
 var hold = false
 var sprint = false
 
+func _ready():
+	Global.run_start_time = Time.get_ticks_msec()
+
 func _physics_process(_delta):
 	move()
 	update_animation()
@@ -66,6 +69,7 @@ func _on_hp_controller_hp_lost():
 
 func _on_hp_controller_hp_depleted():
 	queue_free()
+	Global.run_end_time = Time.get_ticks_msec()
 	Global.player_died.emit()
 	## Reparent the camera so that it doesn't get deleted along with the player
 	for c in get_children():

@@ -38,5 +38,4 @@ func get_player_position():
 	return player_pos
 
 func get_survived_time():
-	#return run_end_time - run_start_time
-	return 123 #TODO Return real time and update start and end time when player readies and dies respectively
+	return (run_end_time - run_start_time) / 1000

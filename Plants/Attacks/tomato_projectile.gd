@@ -24,5 +24,6 @@ func _on_primer_timer_timeout():
 	accelerate.tween_property(self, "velocity", direction * move_speed, 1.5)
 
 func _on_hitbox_area_entered(area):
-	area.activate()
-	queue_free()
+	if primed:
+		area.activate()
+		queue_free()

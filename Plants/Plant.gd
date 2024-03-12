@@ -76,7 +76,8 @@ func disable(remove := true):
 	if get_parent() && remove:
 		get_parent().remove_child(self)
 	set_physics_process(false)
-	$AttackTimer.queue_free()
+	if get_node_or_null("AttackTimer"):
+		$AttackTimer.queue_free()
 	#for c in get_children():
 		#if c is Timer:
 			#c.stop()

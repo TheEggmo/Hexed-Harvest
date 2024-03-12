@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @export var windup = true
 var target_hurtbox
+@export var fade = false 
 
 func _physics_process(delta):
 	if windup:
@@ -11,7 +12,7 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		$AnimationPlayer.play("Chomp")
-		if target_hurtbox:
+		if target_hurtbox && !fade:
 			target_hurtbox.activate()
 
 func _on_hitbox_area_entered(area):

@@ -534,7 +534,6 @@ libraries = {
 
 [node name="HPController" type="Node2D" parent="."]
 script = ExtResource("5_4icno")
-max_hp = 5
 
 [node name="Hurtbox" type="Area2D" parent="HPController"]
 collision_layer = 8

@@ -3,7 +3,7 @@ extends Node2D
 signal hp_lost
 signal hp_depleted
 
-@export var max_hp = 3
+@export var max_hp = 5
 @onready var hp = max_hp
 
 @export var enabled = true

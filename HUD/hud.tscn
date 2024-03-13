@@ -133,6 +133,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="CenterContainer/PanelContainer/ScoreDisplay"]
 layout_mode = 2
+mouse_filter = 2
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("4_nb1gn")
 theme_override_font_sizes/font_size = 20

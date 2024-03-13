@@ -19,6 +19,8 @@ func start_score_display():
 	var score_real = score + _time_to_score(time_survived)
 	var high_score_str = str(Global.highscore) if Global.highscore > score_real else str(score_real) +"\nNEW RECORD!"
 	
+	$Button.mouse_filter = Control.MOUSE_FILTER_STOP
+	
 	var tween = create_tween()
 	## Background
 	tween.tween_interval(display_delay)
@@ -46,7 +48,7 @@ func start_score_display():
 	tween.tween_property($HighScoreCount, "text", high_score_str, 0.0)
 	tween.tween_interval(display_delay)
 	## Main menu button
-	tween.tween_property($Button, "modulate", Color8(255, 255, 255, 140), 0.0)
+	tween.tween_property($Button, "modulate", Color.WHITE, 0.0)
 	
 	if score_real > Global.highscore:
 		Global.highscore = score_real

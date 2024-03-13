@@ -21,7 +21,7 @@ func _on_primer_timer_timeout():
 	primed = true
 	var direction = global_position.direction_to(Global.get_player_position())
 	var accelerate = create_tween()
-	accelerate.tween_property(self, "velocity", direction * move_speed, 1.5)
+	accelerate.tween_property(self, "velocity", direction * move_speed, 3.0)
 
 func _on_hitbox_area_entered(area):
 	if primed:

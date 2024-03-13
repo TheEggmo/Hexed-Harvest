@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1hevk5idqfqa"]
+
+[ext_resource type="Script" path="res://MainMenu/tutorial_screen.gd" id="1_yiwhr"]
+[ext_resource type="FontFile" uid="uid://da51eahxyptwu" path="res://Text/Font/pcsenior.ttf" id="2_ubigi"]
+[ext_resource type="Script" path="res://MainMenu/MainMenuButton.gd" id="3_5g6hf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4av3"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yiwhr")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 1139.0
+offset_bottom = 582.0
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("2_ubigi")
+text = "Game by TheEggmo using Godot
+
+Art by TheEggmo using Aseprite
+
+PC Senior font by codeman38 
+
+Playtesting by Thomash"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 575.0
+offset_right = 774.0
+offset_bottom = 603.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_ubigi")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_a4av3")
+text = "Return to Main Menu"
+flat = true
+script = ExtResource("3_5g6hf")
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

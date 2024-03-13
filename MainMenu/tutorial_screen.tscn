@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_v878k")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 18.0
 offset_right = 1139.0

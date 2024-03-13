@@ -8,3 +8,6 @@ func _on_timer_timeout():
 
 func _on_play_button_pressed():
 	get_tree().change_scene_to_file("res://Levels/level.tscn")
+
+func _on_tutorial_button_pressed():
+	get_tree().change_scene_to_file("res://MainMenu/tutorial_screen.tscn")

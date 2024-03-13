@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6qokqqdr603l"]
+
+[ext_resource type="FontFile" uid="uid://da51eahxyptwu" path="res://Text/Font/pcsenior.ttf" id="1_sl51y"]
+[ext_resource type="Script" path="res://MainMenu/tutorial_screen.gd" id="1_v878k"]
+[ext_resource type="Script" path="res://MainMenu/MainMenuButton.gd" id="2_3oadc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4av3"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="TutorialScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v878k")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 17.0
+offset_top = 18.0
+offset_right = 1139.0
+offset_bottom = 582.0
+theme_override_constants/line_spacing = 4
+theme_override_fonts/font = ExtResource("1_sl51y")
+text = "Our brothers have developed a spell that allows us to grow large quantities of food in short time. 
+It's your job to harvest those crops and bring them to the deposit boxes, but be quick! The spell has an unwelcome side effect!
+Once mature, the plants quickly turn violent, but are also worth more. 
+It's up to you whether to safely harvest them early or risk earning more by letting them turn.
+
+Controls:
+Use WASD or arrow keys to move.
+Hold Shift to sprint, but only when not carrying a plant.
+Use Space to pick up, deposit, and toss plants.
+
+Tips:
+- Getting hit causes you to drop your held plant.
+- Some plants will cancel their attack when picked up.
+- You get points for time survived, so don't be afraid to run for safety if things get dangerous.
+- Sometimes it's better to quickly pick and toss multiple corrupted plants to reduce the volume of enemy attacks rather than trying to deposit every single one."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 575.0
+offset_right = 774.0
+offset_bottom = 603.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_sl51y")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("StyleBoxFlat_a4av3")
+text = "Return to Main Menu"
+flat = true
+script = ExtResource("2_3oadc")
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

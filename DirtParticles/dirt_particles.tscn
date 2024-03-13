@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://xgvwwblg5i63"]
+[gd_scene load_steps=6 format=3 uid="uid://xgvwwblg5i63"]
 
 [ext_resource type="Texture2D" uid="uid://ck1or2vvnsa38" path="res://DirtParticles/dirtparticle.png" id="1_roxq5"]
 [ext_resource type="Script" path="res://DirtParticles/DirtParticles.gd" id="2_5takg"]
@@ -21,12 +21,6 @@ initial_velocity_max = 100.0
 gravity = Vector3(0, 98, 0)
 scale_min = 0.5
 alpha_curve = SubResource("CurveTexture_cmbib")
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 1.0
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7bao4"]
-polygon = PackedVector2Array(-25, 5, 25, 5, 25, 10, -25, 10)
 
 [node name="DirtParticles" type="GPUParticles2D"]
 z_index = 2
@@ -35,8 +29,5 @@ process_material = SubResource("ParticleProcessMaterial_x5pu7")
 texture = ExtResource("1_roxq5")
 explosiveness = 1.0
 script = ExtResource("2_5takg")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_7bao4")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

@@ -31,6 +31,7 @@ func deposit_plant(plant :Plant):
 	var awarded_points = corrupted_points if plant.corrupted else base_points
 	Global.points += awarded_points
 	Global.spawn_floating_text(str(awarded_points), global_position)
+	AudioManager.play("res://SFX/deposit.wav")
 	return true
 
 func is_plant_allowed(plant :Plant):

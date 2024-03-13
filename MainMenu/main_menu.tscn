@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo7ryokhn5skx"]
+[gd_scene load_steps=9 format=3 uid="uid://bo7ryokhn5skx"]
 
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_gk5ab"]
 [ext_resource type="FontFile" uid="uid://da51eahxyptwu" path="res://Text/Font/pcsenior.ttf" id="2_277d8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://MainMenu/MainMenuButton.gd" id="4_3q17y"]
 [ext_resource type="PackedScene" uid="uid://2ivyuol2wnja" path="res://Plants/plant_plots.tscn" id="5_h15f5"]
 [ext_resource type="PackedScene" uid="uid://xgvwwblg5i63" path="res://DirtParticles/dirt_particles.tscn" id="6_3rqgp"]
+[ext_resource type="PackedScene" uid="uid://ly0qev8vruy8" path="res://Player/dust_particles.tscn" id="7_amubt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s8d6j"]
 bg_color = Color(0, 0, 0, 1)
@@ -95,6 +96,18 @@ demo_mode = true
 
 [node name="DirtParticles" parent="PlantPlots" instance=ExtResource("6_3rqgp")]
 position = Vector2(-164, -181)
+
+[node name="DustParticles" parent="PlantPlots" instance=ExtResource("7_amubt")]
+position = Vector2(-27, -215)
+
+[node name="DustParticles2" parent="PlantPlots" instance=ExtResource("7_amubt")]
+position = Vector2(-27, -215)
+
+[node name="DustParticles3" parent="PlantPlots" instance=ExtResource("7_amubt")]
+position = Vector2(-27, -215)
+
+[node name="DustParticles4" parent="PlantPlots" instance=ExtResource("7_amubt")]
+position = Vector2(-27, -215)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

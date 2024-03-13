@@ -1,7 +1,12 @@
 extends GPUParticles2D
 
+@export var amount_override = -1
+
 func _ready():
-	amount = randi_range(4, 8)
+	if amount_override > 0:
+		amount = amount_override
+	else:
+		amount = randi_range(4, 8)
 	one_shot = true
 	emitting = true
 

@@ -85,3 +85,12 @@ func _on_hp_controller_hp_depleted():
 
 func _on_i_frame_animation_animation_finished(_anim_name):
 	$HPController.enabled = true
+
+var dirt_particle_scene = preload("res://Player/dust_particles.tscn")
+func spawn_dirt_particles():
+	var inst :GPUParticles2D = dirt_particle_scene.instantiate()
+	inst.global_position = global_position
+	#inst.amount_override = 1
+	#inst.process_material.scale_min = 0.5
+	#inst.process_material.scale_max = 0.5
+	Global.add_child(inst)

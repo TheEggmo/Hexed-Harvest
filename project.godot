@@ -18,6 +18,7 @@ config/icon="res://exe/icon.png"
 [autoload]
 
 Global="*res://EventBus.gd"
+AudioManager="*res://SFX/AudioManager.gd"
 
 [display]
 

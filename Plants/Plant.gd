@@ -70,6 +70,7 @@ func collect():
 	visible = false
 	global_position.x = -1000
 	disable()
+	AudioManager.play("res://SFX/dig2.wav")
 	return self
 
 func disable(remove := true):
@@ -137,6 +138,7 @@ func attack_melon():
 
 var tomato_projectile_scene = preload("res://Plants/Attacks/tomato_projectile.tscn")
 func attack_tomato():
+	AudioManager.play("res://SFX/tomato_attack.wav")
 	for i in 3:
 		var atk_scene = tomato_projectile_scene.instantiate()
 		atk_scene.velocity = Vector2.RIGHT.rotated(randf() * TAU)

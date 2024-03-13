@@ -27,6 +27,7 @@ func _on_attack_timer_timeout():
 	$AttackLine.visible = true
 	set_physics_process(true)
 	$Fadeout.start()
+	AudioManager.play("res://SFX/beamfire.wav")
 
 func _on_fadeout_timeout():
 	set_physics_process(false)

@@ -20,3 +20,6 @@ func _on_hitbox_area_entered(area):
 
 func _on_hitbox_area_exited(area):
 	target_hurtbox = null
+
+func play_audio():
+	AudioManager.play("res://SFX/chomp2.wav")

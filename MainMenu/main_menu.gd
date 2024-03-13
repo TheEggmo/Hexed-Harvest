@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	Global.restart.emit()
 	Global.points = 0
 
 func _on_timer_timeout():

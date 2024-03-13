@@ -9,7 +9,7 @@ signal hp_depleted
 @export var enabled = true
 
 func _ready():
-	await get_tree().create_timer(0.1)
+	await get_tree().create_timer(0.1).timeout
 	Global.player_hp_changed.emit(hp)
 
 func _on_hurtbox_attack_detected():

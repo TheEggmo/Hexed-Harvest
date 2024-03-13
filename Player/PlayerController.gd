@@ -66,6 +66,7 @@ func _on_hp_controller_hp_lost():
 		toss_plant()
 	$HPController.enabled = false
 	$IFrameAnimation.play("iframes")
+	AudioManager.play("res://SFX/hitHurt.wav")
 
 func _on_hp_controller_hp_depleted():
 	set_physics_process(false)

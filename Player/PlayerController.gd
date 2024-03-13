@@ -68,7 +68,7 @@ func _on_hp_controller_hp_lost():
 	$IFrameAnimation.play("iframes")
 
 func _on_hp_controller_hp_depleted():
-	queue_free()
+	set_physics_process(false)
 	Global.run_end_time = Time.get_ticks_msec()
 	Global.player_died.emit()
 	## Reparent the camera so that it doesn't get deleted along with the player
@@ -78,7 +78,9 @@ func _on_hp_controller_hp_depleted():
 			c.global_position = global_position
 			get_parent().add_child(c)
 			break
-	 #TODO Add a death animation
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1.0)
+	tween.tween_callback(queue_free)
 
 func _on_i_frame_animation_animation_finished(_anim_name):
 	$HPController.enabled = true
